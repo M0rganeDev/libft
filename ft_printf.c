@@ -6,12 +6,11 @@
 /*   By: morgane <git@morgane.dev>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:27:11 by morgane           #+#    #+#             */
-/*   Updated: 2025/01/07 08:41:09 by morgane          ###   ########.fr       */
+/*   Updated: 2025/01/07 09:20:43 by morgane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <__stdarg_va_list.h>
 
 static int	handle_args(const char *str, va_list args)
 {
