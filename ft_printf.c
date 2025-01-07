@@ -6,11 +6,12 @@
 /*   By: morgane <git@morgane.dev>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:27:11 by morgane           #+#    #+#             */
-/*   Updated: 2024/12/12 09:27:12 by morgane          ###   ########.fr       */
+/*   Updated: 2025/01/07 08:41:09 by morgane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <__stdarg_va_list.h>
 
 static int	handle_args(const char *str, va_list args)
 {
@@ -34,6 +35,31 @@ static int	handle_args(const char *str, va_list args)
 	else if (str[0] == 'X')
 		current_size += handle_hexu(args);
 	return (current_size);
+}
+
+int	ft_println(const char *str, ...)
+{
+	int		str_size;
+	int		index;
+	va_list	args;
+
+	va_start(args, str);
+	index = -1;
+	str_size = 0;
+	if (ft_strchr(str, '%') == NULL)
+		return (ft_putstr_fd((char *)str, STANDARD_OUTPUT_FD), ft_strlen(str));
+	while (str[++index])
+	{
+		if (str[index] == '%')
+			str_size += handle_args(&str[++index], args);
+		else
+		{
+			ft_putchar_fd(str[index], STANDARD_OUTPUT_FD);
+			++str_size;
+		}
+	}
+	ft_printf("\n");
+	return (str_size + 1);
 }
 
 int	ft_printf(const char *str, ...)

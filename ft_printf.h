@@ -6,7 +6,7 @@
 /*   By: morgane <git@morgane.dev>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:27:26 by morgane           #+#    #+#             */
-/*   Updated: 2024/12/12 09:27:28 by morgane          ###   ########.fr       */
+/*   Updated: 2025/01/07 08:39:55 by morgane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <unistd.h>
 
 int		ft_printf(const char *str, ...) __attribute__((format(printf, 1, 2)));
+int		ft_println(const char *str, ...) __attribute__((format(printf, 1, 2)));
 int		handle_char(va_list args);
 int		handle_perc(va_list args);
 int		handle_stri(va_list args);
